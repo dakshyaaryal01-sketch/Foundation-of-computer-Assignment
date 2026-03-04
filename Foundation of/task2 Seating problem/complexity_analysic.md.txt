@@ -1,0 +1,107 @@
+# Complexity Analysis – Classroom Seating Arrangement Problem
+
+## 1. Problem Overview
+
+The seating arrangement problem requires arranging students in a single row such that:
+
+1. Friends do not sit next to each other.
+2. Students from the same city do not sit next to each other.
+3. Each student is seated exactly once.
+
+This is a constraint satisfaction problem.
+
+---
+
+## 2. Brute Force Approach
+
+### Method
+The brute force method generates all possible seating permutations and checks each one against the constraints.
+
+If there are n students, the total possible arrangements are:
+
+n!
+
+This is called factorial growth.
+
+---
+
+## 3. Time Complexity of Brute Force
+
+The time complexity is:
+
+O(n!)
+
+Example:
+
+- 4 students → 4! = 24 arrangements
+- 5 students → 5! = 120 arrangements
+- 6 students → 6! = 720 arrangements
+- 8 students → 8! = 40,320 arrangements
+- 10 students → 10! = 3,628,800 arrangements
+
+As n increases, the number grows extremely fast.
+
+This is called **combinatorial explosion**.
+
+For large classes (e.g., 30 students), brute force becomes practically impossible.
+
+---
+
+## 4. Why Checking is Easy (Verification)
+
+If a seating arrangement is already given:
+
+- We only check adjacent pairs.
+- There are n - 1 adjacent comparisons.
+
+Time complexity:
+
+O(n)
+
+This is efficient and fast.
+
+This explains why the problem belongs to NP:
+- Verifying a solution is easy.
+- Finding a solution is computationally expensive.
+
+---
+
+## 5. Heuristic Approach
+
+Instead of trying all permutations, we apply a smart strategy:
+
+Example heuristic:
+- Seat students with the most restrictions first.
+- Separate same-city students early.
+
+### Time Complexity
+
+Heuristic approaches typically run in:
+
+O(n²) or O(n log n)
+
+This is significantly faster than O(n!).
+
+---
+
+## 6. Comparison
+
+| Approach      | Time Complexity | Suitable For |
+|--------------|----------------|--------------|
+| Brute Force  | O(n!)         | Small classes |
+| Verification | O(n)          | Checking solution |
+| Heuristic    | O(n²) approx  | Medium/Large classes |
+
+---
+
+## 7. Conclusion
+
+The seating arrangement problem grows factorially with the number of students. 
+
+While verifying a solution is efficient (O(n)), finding the correct arrangement through brute force is computationally expensive (O(n!)).
+
+Therefore, the problem is closer to NP rather than P, because:
+- Verification is polynomial.
+- No known polynomial-time algorithm guarantees a perfect solution.
+
+Heuristic methods provide practical and efficient alternatives, even if they do not always guarantee an optimal arrangement.
